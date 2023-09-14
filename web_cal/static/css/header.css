@@ -8,16 +8,21 @@ header {
     align-items: center;
     justify-content: space-between;
     font-weight: 60px;
+    padding: 0;
     background: transparent;
+    margin-right: 30px;
 }
 
 .logo {
+    color: black;
     display: flex;
     font-size: 30px;
+    font-weight: 500;
 }
 
 .logo img {
     width: 120px;
+    margin: 0;
 }
 
 .logo span {
@@ -29,9 +34,21 @@ header {
 }
 
 .nav-list a {
+    color: black;
     margin-left: 60px;
     font-size: 15px;
     font-weight: 600;
-    border-bottom: 2px;
+    border-bottom: 2px solid transparent;
     transition: all .55s ease;
 }
+.nav-list a:hover{
+    border-bottom: 2px solid white;
+}
+
+#menu-icon{
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
