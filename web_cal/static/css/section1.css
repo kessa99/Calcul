@@ -42,6 +42,9 @@ section{
     background: transparent;
     border: 1px solid white;
     transform: translateX(8px);
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
 }
 
 .section1 .section1-text .social{
