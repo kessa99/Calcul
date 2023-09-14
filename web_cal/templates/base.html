@@ -10,8 +10,11 @@
          css link
      -->
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/section1.css">
     <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/section1.css">
     <link rel="stylesheet" href="../static/css/body.css">
+    <link rel="stylesheet" href="../static/css/section1.css">
     <!-- 
         js link
      -->
@@ -40,18 +43,24 @@
         </a>
 
         <ul class="nav-list">
-            <a href="{{ url_for('views.register') }}">Enregistrement</a>
-            <a href="{{ url_for('views.download') }}">Telechargement</a>
+            <a href="{{ url_for('views.register') }}">home</a>
             <a href="{{ url_for('views.about') }}">About</a>
             <a href="{{ url_for('views.contact') }}">Contact</a>
         </ul>
 
-        <div class="bx-menu">
+        <div class="bx-menu" id="menu-icon">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAExJREFUSEtjZKAxYKSx+QyjFhAM4QEJov8EnYVfAYqjsfmA5hZQ6AFU7QMSBzT3Ac3jgOYW0DyIhr4FNI8Dmlsw9ONg1AcoIUDz0hQAbegGGXzv/l0AAAAASUVORK5CYII=" />
         </div>
     </header>
-    <section>
-
+    <section class="section1">
+        <div class="section1-text">
+            <h1>Meilleur site de calcul pour <br /> <span>Entreprise,</span>  
+             d'Afrique de l'ouest</h1>
+            <p> <br> </p>
+            <a href="#"> Enregistrez vos donnees</a>
+            <p> <br> </p>
+            <h3> Et facilitez vous la vie </h3>
+        </div>
     </section>
 </body>
 
