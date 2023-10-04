@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <title>{% block title %}TaxIQ{% endblock %}</title>
-    {% include 'modif/css.html' %}
+    {% include 'head/css.html' %}
 </head>
 
 <body id="top" class="font-popins">
@@ -20,11 +20,11 @@
                     Tax <strong><span class="text-lime-500">IQ</span></strong>
                 </span>
             </a>
-            
+
             <button aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-7 md:hidden text-xs">
                 <i class='bx bxs-objects-horizontal-right'></i>
             </button>
-    
+
             <ul id="toggle-menu" class=" absolute top-full left-0 -translate-y-full -z-10 text-gray-800 borde-b border-gray-200 flex flex-col items-center md:static md:z-10 md:w-win md:transform-none md:border-none md:flex-row">
                 <li class="py-4 md:py-0 md:mr-6">
                     <a href="{% url 'home' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
@@ -34,8 +34,8 @@
                         </div>
                     </a>
                 </li>
-                <li class="py-4 md:py-0 md:mr-6">
-                    <a href="{% url 'service' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                <li class="py-4 md:py-0 md:mr-6"> 
+                    <a href="{% url 'services' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
                         <div class="flex flex-col items-center">
                             <i class='bx bxs-dollar-circle'></i>
                             <p>services</p>
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="py-4 md:py-0 md:mr-6">
-                    <a href="{% url 'information' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                    <a href="{% url 'informations' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
                         <div class="flex flex-col items-center">
                             <i class='bx bx-chat'></i>
                             <p>Informations</p>
@@ -53,7 +53,7 @@
                 <li class="py-4 md:py-0 md:mr-6">
                     <a href="{% url 'aide' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
                         <div class="flex flex-col items-center">
-                            <i class='bx bx-help-circle' ></i>                            
+                            <i class='bx bx-help-circle' ></i>
                             <p>aide</p>
                         </div>
                     </a>
@@ -70,7 +70,7 @@
                     <a href="{% url 'signup' %}" class="text-sm  font-semibold w-full hover:text-lime-500">Sign Up</a>
                 </li>
                 <li class="py-4 md:py-0 md:mr-6">
-                    <a href="{% url 'dashboard' %}" class="text-sm  font-semibold w-full hover:text-lime-500">dashbord</a>
+                    <a href="" class="text-sm  font-semibold w-full hover:text-lime-500">dashbord</a>
                 </li>
             </ul>
         </nav>
@@ -83,7 +83,7 @@
             <div class="">
                 <img src="../static/img/logonew.png" alt="" class="w-40px">
             </div>
-            
+
             <div class="bloc footer-service">
                 <h3 class="mb-4"> informations </h3>
                 <ul class="list-service">
