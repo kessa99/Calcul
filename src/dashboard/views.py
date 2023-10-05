@@ -9,3 +9,6 @@ def index(request):
 
 def information_employe(request):
     return render(request, "dashboard/information_employe.html", {})
+
+def impot_salaire(request):
+    return render(request, "dashboard/impot_salaire.html", {})

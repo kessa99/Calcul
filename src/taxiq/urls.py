@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from . import views
-from dashboard.views import index, information_employe
+from dashboard.views import index, information_employe, impot_salaire
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('services/', views.services, name='services'),
 
+    path('information_employe', impot_salaire, name='information_employe'),
     path('information_employe', information_employe, name='information_employe'),
     path('index', index, name='index'),
     path('admin/', admin.site.urls),

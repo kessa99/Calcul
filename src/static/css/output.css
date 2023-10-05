@@ -708,6 +708,10 @@ video {
   margin-top: 80px;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1185,6 +1189,10 @@ video {
 
 .pl-0 {
   padding-left: 0px;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
 }
 
 .text-center {
