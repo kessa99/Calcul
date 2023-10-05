@@ -18,6 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from . import views
+from dashboard.views import index
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -26,6 +27,9 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('services/', views.services, name='services'),
     path('informations/', views.informations, name='informations'),
+
+
+    path('index', index, name='index'),
     path('admin/', admin.site.urls),
 ]
 
