@@ -7,3 +7,5 @@ def index(request):
     employees = Employee.objects.all()
     return render(request, "dashboard/impot.html", context={"employees": employees})
 
+def information_employe(request):
+    return render(request, "dashboard/information_employe.html", {})

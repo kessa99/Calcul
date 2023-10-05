@@ -1,0 +1,74 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+
+    <button type="button" class="text-lg text-gray-600 sidebar-toggle">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <ul class="flex items-center text-sm ml-4">
+        <li class="mr-2">
+            <a href="#" class="text-gray-400 hover:text-gray-600 font-medium">Dashboard</a>
+        </li>
+        <li class="text-gray-600 mr-2 font-medium">/</li>
+        <li class="text-gray-600 mr-2 font-medium">TaxIQ</li>
+    </ul>
+
+    <ul class="ml-auto flex items-center">
+        <li class="dropdown">
+            <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                <i class="ri-notification-3-line"></i>
+            </button>
+            <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                    <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                    <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <body class="bg-gray-100 p-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow">
+            <h1 class="text-2xl font-bold mb-4">Liste des Employés</h1>
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="py-2">Prénom</th>
+                        <th class="py-2">Nom</th>
+                        <th class="py-2">Salaire</th>
+                        <th class="py-2">Grade</th>
+                        <th class="py-2">Enfants</th>
+                        <th class="py-2">Marié</th>
+                        <th class="py-2">Date</th>
+                        <th class="py-2">Image</th>
+                        <th class="py-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td class="py-2">{{ employee.firstname }}</td>
+                        <td class="py-2">{{ employee.lastname }}</td>
+                        <td class="py-2">{{ employee.salary }}</td>
+                        <td class="py-2">{{ employee.grad }}</td>
+                        <td class="py-2">{{ employee.children }}</td>
+                        <td class="py-2">{{ employee.is_marie }}</td>
+                        <td class="py-2">{{ employee.date }}</td>
+                        <td class="py-2">
+                            <img src="{{ employee.image.url }}" alt="Image de l'employé" class="w-12 h-12 object-cover rounded-full">
+                        </td>
+                        <td class="py-2">
+                            <a href="{% url 'update_employee' pk=employee.pk %}" class="text-blue-500 hover:underline mr-2">Modifier</a>
+                            <a href="{% url 'delete_employee' pk=employee.pk %}" class="text-red-500 hover:underline">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+
+
+{% endblock %}
