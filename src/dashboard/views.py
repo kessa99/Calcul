@@ -26,6 +26,17 @@ def impot_salaire(request):
             return redirect('index')
     return render(request, "dashboard/impot_salaire.html", {'form': form})
 
-def edit(request, pk, 'dashbord/edit.html'):
+def edit(request, pk):
     modif = get_object_or_404(Employee, pk=pk)
-    form = EmployeeForm(request.POST or None)
+
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, instance=modif)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirige vers la page d'index après la modification réussie
+    else:
+        form = EmployeeForm(instance=modif)
+
+    return render(request, 'dashboard/edit.html', {'form': form})
+
+def delete(request, pk):
