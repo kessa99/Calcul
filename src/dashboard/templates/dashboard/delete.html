@@ -1,0 +1,21 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+<div class="container mx-auto p-10">
+    <div class="flex justify-center">
+        <div class="w-full max-w-md">
+            <form method="post">
+                {% csrf_token %}
+                <div class="bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md" role="alert">
+                    <p class="font-bold">Voulez vous vraiment supprimer {{ object }}?</p>
+                </div>
+                <div class="flex items-center justify-end mt-4">
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        effacer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

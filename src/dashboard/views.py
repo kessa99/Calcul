@@ -40,3 +40,8 @@ def edit(request, pk):
     return render(request, 'dashboard/edit.html', {'form': form})
 
 def delete(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)
+    if request.method == 'POST':
+        employee.delete()
+        return redirect('index')
+    return render(request, 'dashboard/delete.html', {'object': employee})
