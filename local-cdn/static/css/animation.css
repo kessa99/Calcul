@@ -1,0 +1,71 @@
+.anime{
+    margin: 0;
+    padding: 0;
+    background-color: #2f3542;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+.animated-text{
+    font-size: 40px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.animated-text span{
+    position: relative;
+}
+
+.animated-text span::before{
+    content: "";
+    color: #5cff57;
+    animation: words 20s infinite;
+}
+
+.animated-text span::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: #2f3542;
+    border-left: 2px solid #2fee69;
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to{
+        border-left: 10px solid white;
+    }
+}
+
+@keyframes words {
+    0%,20%{
+        content: "N'ayez plus peur de vos impôts";
+    }
+    21%,40%{
+        content: "Apprenez en un seul click";
+    }
+    41%,60%{
+        content: "Soyez informez en temps et en heure";
+    }
+    61%,80%{
+        content: "Calculer rapidement";
+    }
+    81%,100%{
+        content: "Tout ceci grace a TAXIQ, votre solution DIGITALE";
+    }
+}
+
+@keyframes typing {
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+        width: 0;
+    }
+    5%,20%,25%,40%,45%,60%,65%,80%,85%{
+        width: calc(100% + 8px);
+    }
+}

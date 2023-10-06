@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from . import views
-from dashboard.views import index, information_employe, impot_salaire
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -27,10 +26,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
     path('services/', views.services, name='services'),
+    path('informations/', views.informations, name='informations'),
 
-    path('information_employe', impot_salaire, name='information_employe'),
-    path('information_employe', information_employe, name='information_employe'),
-    path('index', index, name='index'),
+    path('', include('dashboard.urls')),
+    
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

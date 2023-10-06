@@ -1,0 +1,219 @@
+simple presentations
+
+ <section>
+        <div class="flex h-1/2 justify-center items-center text-center  font-extrabold uppercase text-5xl pt-pt100 bg-back  bg-no-repeat bg-center ">
+            <div class=" pt-20 relative">
+                <img src="../static/img/man.png" alt="">
+                <img src="../static/img/elements.png" class="absolute left-0 top-0">
+            </div>
+            <div class="hidden md:inline-block">
+                <p>
+                    Bienvenue sur  TaxIQ <br>
+                    Votre Solution Fiscale Intelligente
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    file information_employe:
+    <div class="py-2 px-6 bg-white flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
+
+    <button type="button" class="text-lg text-gray-600 sidebar-toggle">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <ul class="flex items-center text-sm ml-4">
+        <li class="mr-2">
+            <a href="#" class="text-gray-400 hover:text-gray-600 font-medium">Dashboard</a>
+        </li>
+        <li class="text-gray-600 mr-2 font-medium">/</li>
+        <li class="text-gray-600 mr-2 font-medium">Mise a jour</li>
+    </ul>
+
+    <ul class="ml-auto flex items-center">
+        <li class="dropdown">
+            <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
+                <i class="ri-notification-3-line"></i>
+            </button>
+            <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
+                <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
+                    <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
+                    <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<body class="bg-gray-100 p-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow">
+            <h1 class="text-2xl font-bold mb-4">Modifier Employé</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nom</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Salaire</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Post</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nombre d'enfant</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="lastname" class="block text-sm font-medium text-gray-600">Marié(e)?</label>
+                    <input type="text" id="lastname" name="lastname" value="{{ employee.lastname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <!-- Ajoutez d'autres champs ici -->
+                <div class="mt-4 flex">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+                        Enregistrer
+                    </button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Supprimé
+                    </button>
+                </div>
+            </form>
+        </div>
+</body>
+
+
+
+
+info affiche Employé
+
+information_employe.html
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+{% for empl in employees %}
+
+<img src="{{ empl.image.url }}" alt="{{empl.firstname}}">
+<h3>{{ empl.firstname }}</h3>
+<h3>{{ empl.lastname }}</h3>
+<h3>{{ empl.salary }}</h3>
+<h3>{{ empl.grad }}</h3>
+<h3>{{ empl.children }}</h3>
+<h3>{{ empl.is_marie }}</h3>
+<h3>{{ empl.date }}</h3>
+<div class="relative h-px w-full bg-lime-950 mt-4"> 
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-gray-700 py-0 px-4">Or</div>
+</div>
+
+
+{% endfor %}
+{% endblock %}
+
+
+>>ancien urls TaxIQ
+
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls.static import static
+from . import views
+from dashboard.views import index, inf_employe, impot_salaire, employe_details
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('aide/', views.aide, name='aide'),
+    path('login/', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
+    path('services/', views.services, name='services'),
+    path('informations/', views.informations, name='informations'),
+
+    path('details/<str:slug>/', employe_details, name='details'),
+
+    path('impot_salaire', impot_salaire, name='impot_salaire'),
+    path('inf_employe', inf_employe, name='inf_employe'),
+    # path('index', index, name='index'),
+    path('admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+>> ancienn views dashboard
+    def index(request):
+        employees = Employee.objects.all()
+        return render(request, "dashboard/impot.html", context={"employees": employees})
+
+def employe_details(request, slug):
+    employe = get_object_or_404(Employee, slug=slug)
+    return render(request, 'dashboard/details.html', context={"employe": employe})
+
+def inf_employe(request):
+    return render(request, "dashboard/inf_employe.html", {})
+
+def impot_salaire(request):
+    return render(request, "dashboard/impot_salaire.html", {})
+
+
+
+>>>ancien impot sur Salaire<body class="bg-gray-100 p-8">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow">
+            <h1 class="text-2xl font-bold mb-4">Modifier Employé</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nom</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Salaire</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Post</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nombre d'enfant</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="lastname" class="block text-sm font-medium text-gray-600">Marié(e)?</label>
+                    <input type="text" id="lastname" name="lastname" value="{{ employee.lastname }}"
+                        class="mt-1 p-2 border rounded w-full" required>
+                </div>
+                <!-- Ajoutez d'autres champs ici -->
+                <div class="mt-4 flex">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+                        Enregistrer
+                    </button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Supprimé
+                    </button>
+                </div>
+            </form>
+        </div>
+</body>
+
+
+                        <a href="{% url 'details' post.pk %}" class="text-blue-500 hover:underline mr-2">voir</a>
+                        <a href="#" class="text-red-500 hover:underline">Modifier</a>
+                        <a href="#" class="text-red-500 hover:underline">Supprimer</a>

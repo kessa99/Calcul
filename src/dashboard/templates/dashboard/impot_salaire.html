@@ -1,4 +1,5 @@
 {% extends 'dashboard.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -15,67 +16,33 @@
         <li class="text-gray-600 mr-2 font-medium">/</li>
         <li class="text-gray-600 mr-2 font-medium">Impot sur salaire</li>
     </ul>
-
-    <ul class="ml-auto flex items-center">
-        <li class="dropdown">
-            <button type="button" class="dropdown-toggle text-gray-400 w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
-                <i class="ri-notification-3-line"></i>
-            </button>
-            <div class="dropdown-menu shadow-md shadow-black/5 z-30 hidden max-w-xs w-full bg-white rounded-md border border-gray-100">
-                <div class="flex items-center px-4 pt-4 border-b border-b-gray-100 notification-tab">
-                    <button type="button" data-tab="notification" data-tab-page="notifications" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1 active">Notifications</button>
-                    <button type="button" data-tab="notification" data-tab-page="messages" class="text-gray-400 font-medium text-[13px] hover:text-gray-600 border-b-2 border-b-transparent mr-4 pb-1">Messages</button>
-                </div>
-            </div>
-        </li>
-    </ul>
 </div>
 
 <body class="bg-gray-100 p-8">
-        <div class="max-w-2xl mx-auto bg-white p-8 rounded shadow">
-            <h1 class="text-2xl font-bold mb-4">Modifier Employé</h1>
-            <form method="post">
-                {% csrf_token %}
-                <div class="mb-4">
-                    <label for="firstname" class="block text-sm font-medium text-gray-600">Prénom</label>
-                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nom</label>
-                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="firstname" class="block text-sm font-medium text-gray-600">Salaire</label>
-                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="firstname" class="block text-sm font-medium text-gray-600">Post</label>
-                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="firstname" class="block text-sm font-medium text-gray-600">Nombre d'enfant</label>
-                    <input type="text" id="firstname" name="firstname" value="{{ employee.firstname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="lastname" class="block text-sm font-medium text-gray-600">Marié(e)?</label>
-                    <input type="text" id="lastname" name="lastname" value="{{ employee.lastname }}"
-                        class="mt-1 p-2 border rounded w-full" required>
-                </div>
-                <!-- Ajoutez d'autres champs ici -->
-                <div class="mt-4 flex">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-                        Enregistrer
-                    </button>
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Supprimé
-                    </button>
-                </div>
-            </form>
+    <div class="container mx-auto p-10">
+        <div class="grid grid-cols-10 gap-4">
+            <div class="col-span-10">
+                <h6 class="text-center text-red-500"> All fields are required </h6>
+            </div>
+            <div class="col-span-10">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% for hidden_field in form.hidden_fields %}
+                        {{ hidden_field }}
+                    {% endfor %}
+                    {% for field in form.visible_fields %}
+                    <div class="mb-4">
+                        {{ field.label_tag }}
+                        {% render_field field class="form-input w-full" %}
+                        {% if field.help_text %}
+                            <small class="block text-gray-600">{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Ajouter un nouveau</button>
+                </form>
+            </div>
         </div>
+    </div>
 </body>
 {% endblock %}
