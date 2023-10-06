@@ -14,7 +14,7 @@
             <a href="#" class="text-gray-400 hover:text-gray-600 font-medium">Dashboard</a>
         </li>
         <li class="text-gray-600 mr-2 font-medium">/</li>
-        <li class="text-gray-600 mr-2 font-medium">Impot sur salaire</li>
+        <li class="text-gray-600 mr-2 font-medium">Ajouter une personne</li>
     </ul>
 </div>
 
@@ -22,7 +22,7 @@
     <div class="container mx-auto p-10">
         <div class="grid grid-cols-10 gap-4">
             <div class="col-span-10">
-                <h6 class="text-center text-red-500"> All fields are required </h6>
+                <h6 class="text-center text-red-500"> Veuillez remplir tous les champs s'il vous plait</h6>
             </div>
             <div class="col-span-10">
                 <form method="post" novalidate>
@@ -31,15 +31,17 @@
                         {{ hidden_field }}
                     {% endfor %}
                     {% for field in form.visible_fields %}
-                    <div class="mb-4">
+                    <div class="m-4">
                         {{ field.label_tag }}
-                        {% render_field field class="form-input w-full" %}
+                        {% render_field field class="w-full h-full rounded-lg outline-none border border-solid border-gray-600 rounded-3xl text-base font-normal py-4 px-4 border-b border-gray-400 focus:border-lime-500 focus:border-b-2" %}
                         {% if field.help_text %}
-                            <small class="block text-gray-600">{{ field.help_text }}</small>
+                            <small class="block w-full h-full rounded-lg outline-none border border-solid border-gray-600 rounded-3xl text-base font-normal py-0 px-4 border-b border-gray-400 focus:border-lime-500 focus:border-b-2">{{ field.help_text }}</small>
                         {% endif %}
                     </div>
                     {% endfor %}
-                    <button type="submit" class="btn btn-primary">Ajouter un nouveau</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4">
+                        <a href="#"> Ajouter une personne</a>
+                    </button>
                 </form>
             </div>
         </div>

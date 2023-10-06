@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from dashboard.models import Employee
 from .models import Employee
+from .forms import EmployeeForm
 from django.http import HttpResponse
 
 # Create your views here.
@@ -17,4 +18,14 @@ def inf_employe(request):
     return render(request, "dashboard/inf_employe.html", {})
 
 def impot_salaire(request):
-    return render(request, "dashboard/impot_salaire.html", {})
+    form = EmployeeForm()
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request, "dashboard/impot_salaire.html", {'form': form})
+
+def edit(request, pk, 'dashbord/edit.html'):
+    modif = get_object_or_404(Employee, pk=pk)
+    form = EmployeeForm(request.POST or None)

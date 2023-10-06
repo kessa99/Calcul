@@ -640,6 +640,10 @@ video {
   margin: 1.75rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -1178,6 +1182,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1331,6 +1340,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-lime-600 {
+  --tw-text-opacity: 1;
+  color: rgb(101 163 13 / var(--tw-text-opacity));
 }
 
 .shadow {

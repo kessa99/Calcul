@@ -214,6 +214,9 @@ def impot_salaire(request):
 </body>
 
 
-                        <a href="{% url 'details' post.pk %}" class="text-blue-500 hover:underline mr-2">voir</a>
-                        <a href="#" class="text-red-500 hover:underline">Modifier</a>
-                        <a href="#" class="text-red-500 hover:underline">Supprimer</a>
+<a href="{% url 'details' post.pk %}" class="text-blue-500 hover:underline mr-2">voir</a>
+<a href="#" class="text-red-500 hover:underline">Modifier</a>
+<a href="#" class="text-red-500 hover:underline">Supprimer</a>
+
+<a href="{% url 'edit' employee.pk %}" class="text-red-500 hover:underline">Modifier</a>
+<a href="{% url 'delete' employee.pk %}" class="text-red-500 hover:underline">Supprimer</a>
