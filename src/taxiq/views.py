@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def home(request):
     return render(request, "page/home.html")
@@ -11,12 +11,6 @@ def informations(request):
 
 def services(request):
     return render(request, "page/services.html")
-
-def login(request):
-    return render(request, "page/login.html")
-
-def signup(request):
-    return render(request, "page/signup.html")
 
 def dashboard(request):
     return render(request, "dashboard.html")

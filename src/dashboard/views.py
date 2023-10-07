@@ -4,7 +4,6 @@ from .models import Employee
 from .forms import EmployeeForm
 from django.http import HttpResponse
 from .utils import calcul_impot
-from .models import Employee
 
 
 # Create your views here.

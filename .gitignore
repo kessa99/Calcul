@@ -220,3 +220,100 @@ def impot_salaire(request):
 
 <a href="{% url 'edit' employee.pk %}" class="text-red-500 hover:underline">Modifier</a>
 <a href="{% url 'delete' employee.pk %}" class="text-red-500 hover:underline">Supprimer</a>
+
+
+
+
+            <ul id="toggle-menu" class="list-none absolute top-full left-0 -translate-y-full -z-10 text-gray-800 borde-b border-gray-200 flex flex-col items-center md:static md:z-10 md:w-win md:transform-none md:border-none md:flex-row">
+                {% if user %}
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'home' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bxs-home'></i>
+                            <p>accueil</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6"> 
+                    <a href="{% url 'services' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bxs-dollar-circle'></i>
+                            <p>services</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'informations' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-chat'></i>
+                            <p>Informations</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'aide' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-help-circle' ></i>
+                            <p>aide</p>
+                        </div>
+                    </a>
+                </li>          
+                <li class="list-none py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'logout' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-horizontal-right'></i>
+                            <p>Déconnexion</p>
+                        </div>
+                    </a>
+                </li>
+                {{ user.username }}
+                {% else %}
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'home' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bxs-home'></i>
+                            <p>accueil</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6"> 
+                    <a href="{% url 'services' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bxs-dollar-circle'></i>
+                            <p>services</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'informations' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-chat'></i>
+                            <p>Informations</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'aide' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-help-circle' ></i>
+                            <p>aide</p>
+                        </div>
+                    </a>
+                </li>  
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'login_view' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
+                        <div class="flex flex-col items-center">
+                            <i class='bx bx-horizontal-right'></i>
+                            <p>connexion</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'signup' %}" class="text-sm  font-semibold w-full hover:text-lime-500">Sign Up</a>
+                </li>
+                <li class="py-4 md:py-0 md:mr-6">
+                    <a href="{% url 'index' %}" class="text-sm  font-semibold w-full hover:text-lime-500">dashbord</a>
+                </li>
+                {% endif %}
+
+            </ul>

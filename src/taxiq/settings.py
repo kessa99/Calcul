@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dashboard',
     'widget_tweaks',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,4 @@ STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+AUTH_USER_MODEL = "accounts.CustomUser"
