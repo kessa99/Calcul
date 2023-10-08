@@ -61,18 +61,49 @@
                             </div>
                         </a>
                     </li> 
-                    <li class="list-none py-4 md:py-0 md:mr-6">
-                        <a href="{% url 'logout' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
-                            <div class="flex flex-col items-center">
-                                <i class='bx bx-horizontal-right'></i>
-                                <p>Déconnexion</p>
+
+
+                    <div class="relative group">
+                        <div class="flex items-center cursor-pointer" onclick="toggleDropdown()">
+                            <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                                <i class='bx bx-user text-white'></i>
                             </div>
-                        </a>
-                    </li>
-                    <div class="flex flex-col items-center">
-                        <i class='bx bx-user'></i>
-                        <p>{{ user.username }}</p>
+                            <div class="flex flex-col items-center">
+                                <i class='bx bx-user'></i>
+                                <p>{{ user.username }}</p>
+                            </div>
+                        </div>
+            
+                        <ul id="dropdown"
+                            class="absolute hidden right-0 mt-2 w-44 bg-white border border-secondary rounded shadow-lg group-hover:block transition duration-300 ease-in-out">
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-secondary-light">
+                                <i class='bx bx-user'></i>
+                                Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'index' %}" class="block py-2 px-4 hover:bg-secondary-light">
+                                    <i class='bx bxs-dashboard'></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-4 hover:bg-secondary-light">
+                                    <i class='bx bx-cog' ></i>
+                                    paramètre
+                                </a>
+                            </li>
+                            <hr class="border-green-500 my-2">
+                            <li>
+                                <a href="{% url 'logout' %}" class="block py-2 px-4 hover:bg-secondary-light">
+                                    <i class='bx bx-horizontal-left'></i>
+                                    Deconnexion
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
                 {% else %}
                 <li class="py-4 md:py-0 md:mr-6">
                     <a href="{% url 'home' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
@@ -191,5 +222,11 @@
             <p>copyright &copy;2023 TaxIQ.</p>
         </div>
     </footer>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown");
+            dropdown.classList.toggle("hidden");
+        }
+    </script>
 </body>
 </html>
