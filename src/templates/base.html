@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <script src="../static/js/animation.js"></script>
+   
     
     <title>{% block title %}TaxIQ{% endblock %}</title>
     {% include 'head/css.html' %}
@@ -146,14 +146,6 @@
                             </div>
                         </a>
                     </li>
-                    <li class="py-4 md:py-0 md:mr-6">
-                        <a href="{% url 'signup' %}" class="text-sm  font-semibold w-full hover:text-lime-500">
-                            <div class="flex flex-col items-center">
-                                <i class='bx bx-vertical-center'></i>
-                                <p>Sign Up </p>
-                            </div>
-                        </a>
-                    </li>
                     <!-- Ajoutez d'autres éléments pour l'utilisateur non connecté ici -->
                 {% endif %}
             </ul>
@@ -164,10 +156,13 @@
     {% block content %}{% endblock %}
 
     <footer class="flex flex-col bg-footer1 text-white">
+
+        <div class="flex">
+        <div class="">
+            <img src="../static/img/logonew.png" alt="" class="w-40px">
+        </div>
         <div class="grid grid-cols-5 gap-4">
-            <div class="">
-                <img src="../static/img/logonew.png" alt="" class="w-40px">
-            </div>
+
 
             <div class="bloc footer-service">
                 <h3 class="mb-4"> informations </h3>
@@ -212,12 +207,25 @@
                     <li> <a href="" class="hover:text-lime-500">politique de confidentialité </a></li>
                     <li> <a href="" class="hover:text-lime-500">Termes et conditions d’utilisations</a></li>
                     <li> <a href="" class="hover:text-lime-500">Politique de sécurité </a></li>
-                    <li> <a href="" class="hover:text-lime-500">Facebook</a></li>
-                    <li> <a href="" class="hover:text-lime-500">LinkedIn </a></li>
-                    <li> <a href="" class="hover:text-lime-500">Twitter </a></li>
+                    <li> <a href="" class="hover:text-lime-500"><i class='bx bxl-facebook'></i></a></li>
+                    <li> <a href="" class="hover:text-lime-500"><i class='bx bxl-linkedin'></i> </a></li>
+                    <li> <a href="" class="hover:text-lime-500"><i class='bx bxl-twitter'></i> </a></li>
                 </ul>
             </div>
+
+            <div class="justify-center items-center text-center ">
+                <form class="justify-center items-center text-center ">
+                    <h1 class="text-3xl font-semibold text-gray-800 mb-0 py-8">
+                         <span class="text-lime-500 py-8">Restez a Jour</span> 
+                    </h1>
+                    <label for="email">Address email</label>
+                    <input class="w-full h-full rounded-lg outline-none border border-solid border-gray-600 rounded-3xl text-base font-normal py-0 px-4 border-b border-gray-400 focus:border-lime-500 focus:border-b-2" type="email" id="email" placeholder="email@gmail.com" class="my-2 border-solid border-slate-950">
+                    <button type="submit" class="lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500"> Soubscrivez</button>
+                </form>
+            </div>
         </div>
+        </div>
+
         <div class="bg-footer2 text-center">
             <p>copyright &copy;2023 TaxIQ.</p>
         </div>
@@ -227,6 +235,15 @@
             var dropdown = document.getElementById("dropdown");
             dropdown.classList.toggle("hidden");
         }
+        window.addEventListener('load', function() {
+        const errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            setTimeout(function() {
+            errorMessage.style.display = 'none';
+        }, 5000); // Masque le message d'erreur après 5 secondes (5000 millisecondes)
+    }
+});
+
     </script>
 </body>
 </html>

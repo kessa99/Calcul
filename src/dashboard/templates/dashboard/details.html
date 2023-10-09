@@ -27,18 +27,21 @@
         <p><strong>Marié:</strong> {{ employee.is_marie }}</p>
         <p><strong>Date d'enregistrement:</strong> {{ employee.date }}</p>
 
-        <p><strong>Impôt Annuel:</strong> {{ employee.impot_annuel }}</p>
-        <p><strong>Impôt Mensuel:</strong> {{ employee.impot_mensuel }}</p>
+        <p><strong>Impôt Annuel:</strong> {{ impot_annuel }}</p>
+        <!-- <p><strong>Impôt Mensuel:</strong> {{ impot_mensuel }}</p> -->
 
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4">
-            <a href="#"> Modifier</a>
+        <div class="mt-4">
+            <button type="submit" class="rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500">
+            <a href="{% url 'edit' employee.pk %}"> Modifier</a>
         </button>
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4">
-            <a href="#"> Supprimer</a>
+        <button type="submit">
+            <a href="{% url 'delete' employee.pk %}" class="rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500"> Supprimer</a>
         </button>
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4">
-            <a href="#"> Retour</a>
-        </button>
+        
+        <a href="{% url 'index' %}" class="rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500"> 
+            Retour
+        </a>
+        </div>
     </div>
 </body>
 

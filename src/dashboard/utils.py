@@ -35,5 +35,5 @@ def calcul_impot(salaire, is_maried, children):
             break
 
     impot_annuel = impot
-    impot_mensuel = impot / Decimal('12')
-    return impot_annuel, impot_mensuel
+    # impot_mensuel = impot / Decimal('12')
+    return impot_annuel

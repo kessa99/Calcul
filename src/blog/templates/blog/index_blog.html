@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}accueil{% endblock %}
+
+{% block content %}
+<div class="mt-mept mr-mepd ml-mepg mb-mepb">
+    <section>
+        <div class="flex h-1/2 justify-center items-center text-center pt-pt100 bg-back  bg-no-repeat bg-center">
+            {% if user.is_authenticated %}
+            <div class=" text-3xl hidden md:inline-block">
+                <h1 class="font-bold text-5xl">
+                    <strong>Bonjour 
+                        <span class="text-lime-500">{{ user.username }} </span>!!!
+                        <br />
+                    </strong> 
+                    Le blog n'est pas encore disponible merci de patienter <br /><strong><span class="text-lime-500">Par contre notre algorithme de calcul est là pour vous servir n'hésitez donc pas</span></strong> <br />
+                </h1>
+                <div class="flex items-center justify-center">
+                    <a href="{% url 'index' %}" class="mt-6 lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium mr-4 hover:bg-lime-500">
+                        Commencez  
+                    </a>
+                    <a href="{% url 'index' %}" class="mt-6 lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500">
+                        Retour  
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <div class=" text-3xl hidden md:inline-block">
+                <h1 class="font-bold text-5xl">
+                    <strong>Bonjour!!!<br /> </strong> 
+                    Le blog n'est pas encore disponible merci de patienter <br /><strong><span class="text-lime-500">Par contre notre algorithme de calcul est là pour vous servir n'hésitez donc pas</span></strong>
+                </h1>
+                <div class="flex items-center justify-center">
+                    <a href="{% url 'index' %}" class="mt-6 lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium mr-4 hover:bg-lime-500">
+                        Commencez  
+                    </a>
+                    <a href="{% url 'home' %}" class="mt-6 lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500">
+                        Retour  
+                    </a>
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+    </section>
+</div>
+{% endblock %}
