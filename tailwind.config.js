@@ -60,20 +60,22 @@ module.exports = {
           '50%,70%': { transform: 'translateX(-200%)' },
           '75%,95%': { transform: 'translateX(-300%)' },
           '100%': { transform: 'translateX(-400%)' },
-        }
-      },
-      animation: {
-        wiggle: 'wiggle 12s infinite ease-in-out',
-      },
-      keyframes: {
+        },
         typing: {
           to: {
             'width': 'width: 0%',
           }
+        },
+        move: {
+          '0%': {transform: 'translate(-15px, 0px)'},
+          '50%': {transform: 'translate(0px, -15px)'},
+          '100%': {transform: 'translate(-15px, 0px)'},
         }
       },
       animation: {
-        typing: 'typing 3s steps(14) infinite',
+        'wiggle': 'wiggle 12s infinite ease-in-out',
+        'typing': 'typing 3s steps(14) infinite',
+        'move': 'move 2.5s linear infinite',
       },
     },
   },

@@ -22,10 +22,7 @@
     <div class="container mx-auto p-10">
         <div class="grid grid-cols-10 gap-4">
             <div class="col-span-10">
-                <h6 class="text-center text-red-500"> Veuillez remplir tous les champs s'il vous plait</h6>
-            </div>
-            <div class="col-span-10">
-                <form method="post" novalidate>
+                <form method="POST" novalidate>
                     {% csrf_token %}
                     {% for hidden_field in form.hidden_fields %}
                         {{ hidden_field }}
@@ -39,7 +36,7 @@
                         {% endif %}
                     </div>
                     {% endfor %}
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 mt-4">
+                    <button type="submit" class="lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500">
                         Ajouter
                     </button>
                 </form>

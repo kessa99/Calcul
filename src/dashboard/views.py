@@ -25,19 +25,20 @@ def details(request, pk):
     children = employee.children
 
     # Calcul de l'impôt
-    impot_annuel = calcul_impot(salaire, is_maried, children)
+    impot_annuel, impot_mensuel = calcul_impot(salaire, is_maried, children)
 
     # Convertissez les impôts en float après les avoir calculés
     impot_annuel = float(impot_annuel)
-    # impot_mensuel = float(impot_mensuel)
+    impot_mensuel = float(impot_mensuel)
 
     # Ajoutez l'impôt calculé au contexte de rendu
     context = {
         'employee': employee,
         'impot_annuel': impot_annuel,
-        # 'impot_mensuel': impot_mensuel,
+        'impot_mensuel': impot_mensuel,
     }
     return render(request, 'dashboard/details.html', context)
+
 
 @login_required(login_url='/login_view/')
 def inf_employe(request):
